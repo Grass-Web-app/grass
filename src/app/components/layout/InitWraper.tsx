@@ -11,7 +11,7 @@ const HeaderFooterWraper = ({ children }) => {
       <GlobalStyle />
       <BodyColorChange />
       <Head>
-        <title>El Hector</title>
+        <title>Grass</title>
         <link rel="icon" href={prefix + "/favicon.ico"} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link key={0} rel="preconnect" href="https://fonts.gstatic.com" />
