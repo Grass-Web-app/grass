@@ -1,4 +1,5 @@
 import React from "react";
+import { prefix } from "../../../pages/_app";
 import {
   DivCardInfo,
   DivContainerEngineered,
@@ -127,7 +128,7 @@ const Engineered = () => {
                 {description}
               </TextDescriptionInside>
               <DivImgIconContainer area="icon">
-                <ImgIcon alt="icon" src={img} />
+                <ImgIcon alt="icon" src={prefix + img} />
               </DivImgIconContainer>
             </DivCardInfo>
           );
