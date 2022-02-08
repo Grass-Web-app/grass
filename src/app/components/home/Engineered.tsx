@@ -86,31 +86,31 @@ const Engineered = () => {
         <DivImgSplit1>
           <ImgGrassEngi
             alt="split 1"
-            src={require("../../../../assets/image/split-1.png")}
+            src={prefix + require("../../../../assets/image/split-1.png")}
           />
         </DivImgSplit1>
         <DivImgSplit2>
           <ImgGrassEngi
             alt="split 1"
-            src={require("../../../../assets/image/split-2.png")}
+            src={prefix + require("../../../../assets/image/split-2.png")}
           />
         </DivImgSplit2>
         <DivImgSplit3>
           <ImgGrassEngi
             alt="split 1"
-            src={require("../../../../assets/image/split-3.png")}
+            src={prefix + require("../../../../assets/image/split-3.png")}
           />
         </DivImgSplit3>
         <DivImgSplit4>
           <ImgGrassEngi
             alt="split 1"
-            src={require("../../../../assets/image/split-4.png")}
+            src={prefix + require("../../../../assets/image/split-4.png")}
           />
         </DivImgSplit4>
         <DivImgSplit5>
           <ImgGrassEngi
             alt="split 1"
-            src={require("../../../../assets/image/split-5.png")}
+            src={prefix + require("../../../../assets/image/split-5.png")}
           />
         </DivImgSplit5>
       </DivSandwichContainer>
@@ -128,7 +128,7 @@ const Engineered = () => {
                 {description}
               </TextDescriptionInside>
               <DivImgIconContainer area="icon">
-                <ImgIcon alt="icon" src={prefix + img} />
+                <ImgIcon alt="icon" src={img} />
               </DivImgIconContainer>
             </DivCardInfo>
           );
