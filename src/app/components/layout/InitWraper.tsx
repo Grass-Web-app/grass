@@ -13,8 +13,8 @@ const HeaderFooterWraper = ({ children }) => {
       <GlobalStyle />
       <BodyColorChange />
       <Head>
-        <title>Grass</title>
-        <link rel="icon" href={prefix + "/favicon.ico"} />
+        <title>Fustadesing</title>
+        <link rel="icon" href={prefix + "/pasto.png"} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link key={0} rel="preconnect" href="https://fonts.gstatic.com" />
         <link

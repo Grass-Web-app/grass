@@ -130,6 +130,13 @@ export const DivTextTitle = styled.div`
 
 export const TextTitleCard = styled.h4`
   ${GetFontFamilyHeader()}
+  font-size: 1.2rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.7rem;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+  }
 `;
 export const DivCardInfo = styled.div`
   grid-area: ${(props) => props.area};
