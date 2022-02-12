@@ -3,11 +3,13 @@ import Head from "next/head";
 import { GlobalStyle } from "../../../styles/createGlobalStyles";
 import BodyColorChange from "../BodyColorChange";
 import { prefix } from "../../../pages/_app";
-import Footer from "../footer/Footer";
+import { DivContainerHOC } from "./styledHOC";
 
 const HeaderFooterWraper = ({ children }) => {
   return (
-    <div>
+    <DivContainerHOC
+      bg={require("../../../../assets/image/playground-bg.jpeg")}
+    >
       <GlobalStyle />
       <BodyColorChange />
       <Head>
@@ -22,8 +24,7 @@ const HeaderFooterWraper = ({ children }) => {
       </Head>
 
       {children}
-      <Footer />
-    </div>
+    </DivContainerHOC>
   );
 };
 

@@ -9,6 +9,7 @@ export const DivContainerEngineered = styled.div`
   height: 110vh;
   display: grid;
   grid-template-columns: 40% 60%;
+  background: white;
 `;
 
 export const DivSandwichContainer = styled.div`
