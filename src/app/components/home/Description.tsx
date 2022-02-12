@@ -1,5 +1,9 @@
 import React from "react";
-import { DivContainerDescription, PWordDescription, PWordDescriptionRale } from "./StyledDescription";
+import {
+  DivContainerDescription,
+  PWordDescription,
+  PWordDescriptionRale,
+} from "./StyledDescription";
 const Description = () => {
   return (
     <DivContainerDescription>
@@ -8,7 +12,9 @@ const Description = () => {
         decades. We’ve installed thousands of engineered turf systems. Check out
         what decades of innovation can accomplish. It’s time for XGrass.
       </PWordDescription>
-      <PWordDescriptionRale>PROVEN SYSTEMS FOR EVERY APPLICATION</PWordDescriptionRale>
+      <PWordDescriptionRale>
+        PROVEN SYSTEMS FOR EVERY APPLICATION
+      </PWordDescriptionRale>
     </DivContainerDescription>
   );
 };

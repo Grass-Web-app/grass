@@ -61,7 +61,7 @@ const Carousel = () => {
         <H3Mark>XGRASS PLAYERS SERIES</H3Mark>
       </DivMessage>
       <DivCarousel>
-        <LeftArrow>
+        <LeftArrow area="Larr">
           <ButtonImgArrow onClick={handleLeft}>
             <ImgArrow
               alt="img"
@@ -69,19 +69,19 @@ const Carousel = () => {
             />
           </ButtonImgArrow>
         </LeftArrow>
-        <DivTextContainer>
+        <DivTextContainer area="des">
           <H4TitleCarousel>{CarouselDates[information].title}</H4TitleCarousel>
           <PDescriptionCarousel>
             {CarouselDates[information].descroption}
           </PDescriptionCarousel>
         </DivTextContainer>
-        <DivImgContainer>
+        <DivImgContainer area="img">
           <ImgCarousell
             alt="img carousel"
             src={prefix + CarouselDates[information].picture}
           />
         </DivImgContainer>
-        <RightArrow>
+        <RightArrow area="Rarr">
           <ButtonImgArrow onClick={handleRight}>
             <ImgArrow
               rotate

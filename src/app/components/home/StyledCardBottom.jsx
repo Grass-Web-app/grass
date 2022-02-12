@@ -9,8 +9,18 @@ export const DivContainerCards = styled.div``;
 
 export const DivCardGrid = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
-  height: 60vh;
+  height: 100vh;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    height: 70vh;
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 1024px) {
+    height: 60vh;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+  }
 `;
 
 export const DivCardImgContainer = styled.div`
@@ -24,8 +34,16 @@ export const DivRightTexContainer = styled.div`
   flex-direction: column;
   background: #f5f5f5;
   padding-left: 5%;
-  padding-right: 35%;
+  padding-right: 5%;
   justify-content: center;
+  @media screen and (min-width: 768px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 5%;
+    padding-right: 35%;
+  }
 `;
 
 export const ImgCardBottom = styled.img`
@@ -38,9 +56,17 @@ export const DivLeftTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: #f5f5f5;
-  padding-left: 35%;
+  padding-left: 5%;
   padding-right: 5%;
   justify-content: center;
+  @media screen and (min-width: 768px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 35%;
+    padding-right: 5%;
+  }
 `;
 
 export const DivIconContainer = styled.div`
@@ -79,4 +105,10 @@ export const H4TitleCard = styled.h4`
 export const PDescription = styled.p`
   ${GetNormalFamily()}
   font-size: 1.1rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 1.1rem;
+  }
 `;
