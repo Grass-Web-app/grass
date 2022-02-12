@@ -7,11 +7,12 @@ import {
 
 export const DivCarouselContainer = styled.div`
   padding-bottom: 5%;
+  background: white;
 `;
 
 export const DivMessage = styled.div`
-  margin-top: 4%;
-  margin-bottom: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
 `;
 export const Ptitle = styled.p`
   text-align: center;

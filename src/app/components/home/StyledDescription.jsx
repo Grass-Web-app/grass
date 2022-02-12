@@ -5,6 +5,8 @@ export const DivContainerDescription = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: white;
+  padding-bottom: 3%;
 `;
 
 export const PWordDescription = styled.p`

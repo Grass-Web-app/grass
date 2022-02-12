@@ -10,6 +10,7 @@ export const DivContainerShow = styled.div`
   position: relative;
   overflow: hidden;
   box-shadow: 0 2px 22px -2px black;
+  background: white;
 `;
 export const DivHidenSee = styled.div`
   position: relative;
