@@ -38,9 +38,12 @@ export const DivRightTexContainer = styled.div`
   justify-content: center;
   @media screen and (min-width: 768px) {
     padding-left: 5%;
+    padding-right: 5%;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 5%;
     padding-right: 35%;
   }
-  
 `;
 
 export const ImgCardBottom = styled.img`
@@ -58,7 +61,7 @@ export const DivLeftTextContainer = styled.div`
   justify-content: center;
   @media screen and (min-width: 768px) {
     padding-left: 5%;
-    padding-right: 35%;
+    padding-right: 5%;
   }
   @media screen and (min-width: 1024px) {
     padding-left: 35%;
@@ -102,4 +105,10 @@ export const H4TitleCard = styled.h4`
 export const PDescription = styled.p`
   ${GetNormalFamily()}
   font-size: 1.1rem;
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 1.1rem;
+  }
 `;
