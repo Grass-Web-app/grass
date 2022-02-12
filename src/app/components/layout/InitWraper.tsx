@@ -8,7 +8,7 @@ import { DivContainerHOC } from "./styledHOC";
 const HeaderFooterWraper = ({ children }) => {
   return (
     <DivContainerHOC
-      bg={require("../../../../assets/image/playground-bg.jpeg")}
+      bg={prefix + require("../../../../assets/image/playground-bg.jpeg")}
     >
       <GlobalStyle />
       <BodyColorChange />
