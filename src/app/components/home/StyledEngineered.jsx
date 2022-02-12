@@ -6,31 +6,63 @@ import {
 } from "../../../styles/createGlobalStyles";
 
 export const DivContainerEngineered = styled.div`
-  height: 110vh;
+  height: fit;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 100%;
   background: white;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 100%;
+    height: fit-content;
+  }
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 40% 60%;
+    height: 110vh;
+  }
 `;
 
 export const DivSandwichContainer = styled.div`
-  border-color: red;
   position: relative;
+  height: 70vh;
+  @media screen and (min-width: 768px) {
+    height: 80vh;
+  }
+  @media screen and (min-width: 1024px) {
+    height: auto;
+  }
 `;
 
 export const DivContainerSandText = styled.div`
-  border-color: green;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 19% 27% 27% 27%;
+  grid-template-columns: 100%;
   grid-template-areas:
-    "title title"
-    "card1 card2"
-    "card3 card4"
-    "card5 card6";
-  padding-left: 5%;
-  padding-right: 30%;
-  padding-bottom: 10%;
-  padding-top: 10%;
+    "title"
+    "card1 "
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6";
+  height: fit-content;
+  padding-left: 10%;
+  padding-right: 10%;
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 19% 27% 27% 27%;
+    grid-template-areas:
+      "title title"
+      "card1 card2"
+      "card3 card4"
+      "card5 card6";
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: auto;
+    padding-left: 5%;
+    padding-right: 30%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
 `;
 
 export const DivImgSplit1 = styled.div`
