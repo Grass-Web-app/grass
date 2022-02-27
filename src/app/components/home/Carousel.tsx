@@ -84,7 +84,7 @@ const Carousel = () => {
         <RightArrow area="Rarr">
           <ButtonImgArrow onClick={handleRight}>
             <ImgArrow
-              rotate
+              rotate={true.toString()}
               alt="img"
               src={require("../../../../assets/icons/signature-arrow-prev.svg")}
             />

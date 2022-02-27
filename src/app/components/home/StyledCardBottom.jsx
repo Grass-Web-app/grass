@@ -106,7 +106,7 @@ export const PDescription = styled.p`
   ${GetNormalFamily()}
   font-size: 1.1rem;
   @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   @media screen and (min-width: 1024px) {
     font-size: 1.1rem;

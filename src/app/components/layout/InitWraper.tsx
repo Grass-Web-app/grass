@@ -4,6 +4,7 @@ import { GlobalStyle } from "../../../styles/createGlobalStyles";
 import BodyColorChange from "../BodyColorChange";
 import { prefix } from "../../../pages/_app";
 import { DivContainerHOC } from "./styledHOC";
+import Footer from "../footer/Footer";
 
 const HeaderFooterWraper = ({ children }) => {
   return (
@@ -24,6 +25,7 @@ const HeaderFooterWraper = ({ children }) => {
       </Head>
 
       {children}
+      <Footer />
     </DivContainerHOC>
   );
 };

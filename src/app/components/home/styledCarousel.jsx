@@ -111,7 +111,7 @@ export const ButtonImgArrow = styled.button`
 `;
 export const ImgArrow = styled.img`
   width: 50%;
-  ${(props) => props.rotate && "transform: rotate(180deg);"}
+  ${(props) => props.rotate === "true" && "transform: rotate(180deg);"}
 `;
 
 export const H4TitleCarousel = styled.h4`
