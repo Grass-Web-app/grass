@@ -1,4 +1,5 @@
 import React from "react";
+import { prefix } from "../../../pages/_app";
 import {
   DescriptionOnly,
   DivCard,
@@ -27,7 +28,7 @@ const CardsOfPics = () => {
         return (
           <DivCard color={place} key={index}>
             <DivImgContainer>
-              <ImgOnly alt="image" src={item} />
+              <ImgOnly alt="image" src={prefix + item} />
             </DivImgContainer>
             <DivRightInfo>
               <Divicon area="icon">
