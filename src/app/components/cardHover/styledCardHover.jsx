@@ -45,7 +45,7 @@ export const DivRelativeBlack = styled.div`
   height: ${(props) => (props.animation === "true" ? "100%" : "0%")};
   opacity: 0.7;
   z-index: 2;
-  transition: 0.7s;
+  transition: 0.4s;
 `;
 export const H2Desc = styled.h2`
   transition: 0.3s;
@@ -55,7 +55,7 @@ export const H2Desc = styled.h2`
 `;
 
 export const H2DescHide = styled.h2`
-  transition: 0.7s;
+  transition: 0.4s;
   color: white;
   ${(props) => props.animation === "true" && "font-size: 0;"}
   ${GetFontFamilyHeader()}
@@ -65,13 +65,16 @@ export const PTitle = styled.p`
   color: white;
   ${GetFamilyHeader()}
   font-size: ${(props) => (props.animation === "true" ? "0" : "18")}px;
-  transition: 0.7s;
+  transition: 0.4s;
 `;
 export const PText = styled.p`
+  
+  ${(props) => (props.animation === "false" && "transition-delay: 0.4s;" )};
   color: white;
   ${GetNormalFamily()}
-  ${(props) => props.animation === "true" && "font-size: 0;"}
-  transition: 0.7s;
+  font-size: ${(props) => (props.animation === "true" ? "0" : "18")}px;
+
+  width: 100%;
 `;
 export const DivContainerCard = styled.div`
   margin-left: 8%;
@@ -93,7 +96,7 @@ export const DivRelativeTwo = styled.div`
   height: ${(props) => (props.animation === "true" ? "100%" : "0%")};
 
   z-index: 2;
-  transition: 0.7s;
+  transition: 0.4s;
   display: flex;
   align-items: center;
 `;
