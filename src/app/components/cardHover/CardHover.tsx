@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import {
   DivContainerCard,
@@ -17,14 +18,23 @@ const CardHover = (props: {
   SubTitle: string;
   Description: string;
   img: string;
+  id: number;
 }) => {
-  const { Title, SubTitle, Description, img } = props;
+  const { Title, SubTitle, Description, img, id } = props;
+  const { push } = useRouter();
+  const GotoGrass = (route: string) => {
+    push(`grass/${route}`);
+  };
   const [ShowAnimation, setShowAnimation] = useState(false);
   const handleMouse = () => {
     setShowAnimation(!ShowAnimation);
   };
   return (
-    <DivContainerHover onMouseOver={handleMouse} onMouseOut={handleMouse}>
+    <DivContainerHover
+      onClick={() => GotoGrass(`${id}`)}
+      onMouseOver={handleMouse}
+      onMouseOut={handleMouse}
+    >
       <DivImgCOntainer>
         <ImgHover alt="grass" src={img} />
       </DivImgCOntainer>

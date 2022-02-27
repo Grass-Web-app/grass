@@ -55,7 +55,7 @@ export const H2Desc = styled.h2`
 `;
 
 export const H2DescHide = styled.h2`
-  transition: 0.4s;
+  ${(props) => props.animation === "false" && "transition-delay: 0.4s;"};
   color: white;
   ${(props) => props.animation === "true" && "font-size: 0;"}
   ${GetFontFamilyHeader()}
@@ -65,16 +65,17 @@ export const PTitle = styled.p`
   color: white;
   ${GetFamilyHeader()}
   font-size: ${(props) => (props.animation === "true" ? "0" : "18")}px;
-  transition: 0.4s;
+  ${(props) => props.animation === "false" && "transition-delay: 0.4s;"};
 `;
 export const PText = styled.p`
-  
-  ${(props) => (props.animation === "false" && "transition-delay: 0.4s;" )};
+  ${(props) => props.animation === "false" && "transition-delay: 0.4s;"};
   color: white;
   ${GetNormalFamily()}
-  font-size: ${(props) => (props.animation === "true" ? "0" : "18")}px;
-
+  font-size: ${(props) => (props.animation === "true" ? "0" : "16")}px;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    font-size: ${(props) => (props.animation === "true" ? "0" : "1")}rem;
+  }
 `;
 export const DivContainerCard = styled.div`
   margin-left: 8%;

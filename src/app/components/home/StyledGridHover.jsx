@@ -8,7 +8,7 @@ export const DivContainerGrid = styled.div`
     grid-template-columns: 50% 50%;
   }
 
-  @media screen and (min-width: 1124px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: 25% 25% 25% 25%;
   }
 `;
