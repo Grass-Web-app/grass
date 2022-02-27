@@ -6,7 +6,7 @@ import {
 } from "../../../styles/createGlobalStyles";
 
 export const DivContainerEngineered = styled.div`
-  height: fit;
+  height: fit-content;
   display: grid;
   grid-template-columns: 100%;
   background: white;
@@ -16,7 +16,7 @@ export const DivContainerEngineered = styled.div`
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: 40% 60%;
-    height: 110vh;
+    height: fit-content;
   }
 `;
 
