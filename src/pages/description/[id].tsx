@@ -7,9 +7,8 @@ import GrassHeader from "../../app/components/grass/GrassHeader";
 import { DivGrassDescription } from "../../app/components/grass/styledgrass";
 import HeaderFooterWraper from "../../app/components/layout/InitWraper";
 
-
 const index = ({ props }) => {
-  console.log(props)
+  console.log(props);
   return (
     <HeaderFooterWraper>
       {props?.Id !== 0 && (
@@ -25,8 +24,10 @@ const index = ({ props }) => {
 };
 
 export async function getServerSideProps(contex) {
-  const {id} = contex.query
-  
+  const { id } = contex.query;
+  const { id: otroid } = contex.params;
+  console.log(id, otroid);
+
   return {
     props: {
       Id: `${id}`,
