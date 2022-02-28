@@ -18,19 +18,17 @@ const index = () => {
       //setId(routeId);
     }
   }, [routeQuery]);
-  //useEffect(() => {
-  //  if (asPath?.includes("result") && asPath?.split("/").length > 1) {
-  //    push(asPath);
-  //  }
-  //}, [asPath]);
+
   return (
     <HeaderFooterWraper>
-      <DivGrassDescription>
-        <GrassHeader id={Id} />
-        <FullDescription id={Id} />
-        <CarouselGrass />
-        <CardsOfPics />
-      </DivGrassDescription>
+      {Id !== 0 && (
+        <DivGrassDescription>
+          <GrassHeader id={Id} />
+          <FullDescription id={Id} />
+          <CarouselGrass />
+          <CardsOfPics />
+        </DivGrassDescription>
+      )}
     </HeaderFooterWraper>
   );
 };

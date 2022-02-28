@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 const index = () => {
   const { pathname, push } = useRouter();
   useEffect(() => {
+    console.log("prueba mistica");
     if (pathname.includes("/description")) push("/");
   }, []);
 
