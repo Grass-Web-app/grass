@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { prefix } from "../../../pages/_app";
 import {
   DivContainerCard,
   DivContainerHover,
@@ -23,7 +24,7 @@ const CardHover = (props: {
   const { Title, SubTitle, Description, img, id } = props;
   const { push } = useRouter();
   const GotoGrass = (route: string) => {
-    push(`grass/${route}`);
+    push(prefix + `grass/${route}`);
   };
   const [ShowAnimation, setShowAnimation] = useState(false);
   const handleMouse = () => {
