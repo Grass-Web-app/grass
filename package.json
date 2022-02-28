@@ -2,10 +2,11 @@
   "name": "grass-web-app-2022",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hector4like6gorillaz.github.io/",
+  "homepage": "https://hector4like6gorillaz.github.io/grass",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "dependencies": {
