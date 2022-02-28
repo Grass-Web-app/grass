@@ -18,7 +18,7 @@ const index = () => {
       //setId(routeId);
     }
   }, [routeQuery]);
-
+  
   return (
     <HeaderFooterWraper>
       {Id !== 0 && (
