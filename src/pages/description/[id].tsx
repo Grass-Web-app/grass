@@ -7,25 +7,15 @@ import GrassHeader from "../../app/components/grass/GrassHeader";
 import { DivGrassDescription } from "../../app/components/grass/styledgrass";
 import HeaderFooterWraper from "../../app/components/layout/InitWraper";
 
-const val = "1";
-const index = () => {
-  const { query: routeQuery } = useRouter();
-  const [Id, setId] = useState<any>(0);
-  useEffect(() => {
-    if (routeQuery && routeQuery?.id) {
-      console.log(routeQuery);
-      console.log(routeQuery?.id);
-      setId(parseInt(`${routeQuery.id}`));
-      //setId(routeId);
-    }
-  }, [routeQuery]);
 
+const index = ({ props }) => {
+  console.log(props)
   return (
     <HeaderFooterWraper>
-      {Id !== 0 && (
+      {props?.Id !== 0 && (
         <DivGrassDescription>
-          <GrassHeader id={Id} />
-          <FullDescription id={Id} />
+          <GrassHeader id={props?.Id} />
+          <FullDescription id={props?.Id} />
           <CarouselGrass />
           <CardsOfPics />
         </DivGrassDescription>
@@ -34,26 +24,14 @@ const index = () => {
   );
 };
 
-export async function getStaticPaths() {
-  const arr = [1, 2, 3, 4, 5, 6, 7];
-  const paths = arr.map((item: number) => {
-    return { params: { id: `${item}` } };
-  });
-
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps({ params }: any) {
+export async function getServerSideProps(contex) {
+  const {id} = contex.query
+  
   return {
     props: {
-      post: {
-        id: params.id,
-        title: `Post ${params.id} title`,
-      },
+      Id: `${id}`,
     },
   };
 }
+
 export default index;
