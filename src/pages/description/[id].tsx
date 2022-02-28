@@ -7,24 +7,16 @@ import GrassHeader from "../../app/components/grass/GrassHeader";
 import { DivGrassDescription } from "../../app/components/grass/styledgrass";
 import HeaderFooterWraper from "../../app/components/layout/InitWraper";
 
-const index = () => {
-  const { query: routeQuery } = useRouter();
-  const [Id, setId] = useState<any>(0);
-  useEffect(() => {
-    if (routeQuery && routeQuery?.id) {
-      console.log(routeQuery);
-      console.log(routeQuery?.id);
-      setId(parseInt(`${routeQuery.id}`));
-      //setId(routeId);
-    }
-  }, [routeQuery]);
 
+const index = ({id}) => {
+ 
+console.log(id, "?????")
   return (
     <HeaderFooterWraper>
-      {Id !== 0 && (
+      {true && (
         <DivGrassDescription>
-          <GrassHeader id={Id} />
-          <FullDescription id={Id} />
+          <GrassHeader id={id.id} />
+          <FullDescription id={id.id} />
           <CarouselGrass />
           <CardsOfPics />
         </DivGrassDescription>
@@ -32,5 +24,13 @@ const index = () => {
     </HeaderFooterWraper>
   );
 };
+
+export async function getServerSideProps({ params }) {  
+  return {
+    props: {
+      id: params,
+    },
+  };
+}
 
 export default index;
