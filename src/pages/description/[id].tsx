@@ -7,8 +7,8 @@ import GrassHeader from "../../app/components/grass/GrassHeader";
 import { DivGrassDescription } from "../../app/components/grass/styledgrass";
 import HeaderFooterWraper from "../../app/components/layout/InitWraper";
 
-
-const index = ({ post }) => {
+const val = "1";
+const index = () => {
   const { query: routeQuery } = useRouter();
   const [Id, setId] = useState<any>(0);
   useEffect(() => {
@@ -19,7 +19,7 @@ const index = ({ post }) => {
       //setId(routeId);
     }
   }, [routeQuery]);
-  console.log(post);
+
   return (
     <HeaderFooterWraper>
       {Id !== 0 && (
@@ -34,22 +34,26 @@ const index = ({ post }) => {
   );
 };
 
-
 export async function getStaticPaths() {
-  const val = "1";
+  const arr = [1, 2, 3, 4, 5, 6, 7];
+  const paths = arr.map((item: number) => {
+    return { params: { id: `${item}` } };
+  });
+
   return {
-    paths: [{ params: { id: val } }],
-    fallback: false,
+    paths,
+    fallback: true,
   };
 }
-export async function getStaticProps({params}: any) {
+
+export async function getStaticProps({ params }: any) {
   return {
-      props: {
-          post: {
-              id: params.id,
-              title: `Post ${params.id} title`
-          }
-      }
-  }
+    props: {
+      post: {
+        id: params.id,
+        title: `Post ${params.id} title`,
+      },
+    },
+  };
 }
 export default index;
