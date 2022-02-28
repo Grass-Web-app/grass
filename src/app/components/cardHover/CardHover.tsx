@@ -23,7 +23,7 @@ const CardHover = (props: {
   const { Title, SubTitle, Description, img, id } = props;
   const { push } = useRouter();
   const GotoGrass = (route: string) => {
-    push(`grass/${route}`);
+    push(`description/${route}`);
   };
   const [ShowAnimation, setShowAnimation] = useState(false);
   const handleMouse = () => {
