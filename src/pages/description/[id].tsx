@@ -9,14 +9,24 @@ import HeaderFooterWraper from "../../app/components/layout/InitWraper";
 
 
 const index = ({id}) => {
- 
-console.log(id, "?????")
+  
+  const { query: routeQuery } = useRouter();
+  const [Id, setId] = useState<any>(0);
+  useEffect(() => {
+    if (routeQuery && routeQuery?.id) {
+      console.log(routeQuery);
+      console.log(routeQuery?.id);
+      setId(parseInt(`${routeQuery.id}`));
+      //setId(routeId);
+    }
+  }, [routeQuery]);
+
   return (
     <HeaderFooterWraper>
-      {true && (
+      {Id !== 0 && (
         <DivGrassDescription>
-          <GrassHeader id={id.id} />
-          <FullDescription id={id.id} />
+          <GrassHeader id={Id} />
+          <FullDescription id={Id} />
           <CarouselGrass />
           <CardsOfPics />
         </DivGrassDescription>
@@ -25,12 +35,5 @@ console.log(id, "?????")
   );
 };
 
-export async function getServerSideProps({ params }) {  
-  return {
-    props: {
-      id: params,
-    },
-  };
-}
 
 export default index;
