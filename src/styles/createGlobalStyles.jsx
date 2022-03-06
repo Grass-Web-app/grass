@@ -26,7 +26,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-image: url(${require("../../assets/image/bocce.jpeg")});
+  height: 100vh;
+  object-fit: cover;
 }
 
 code {
