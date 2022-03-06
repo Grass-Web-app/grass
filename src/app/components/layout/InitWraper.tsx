@@ -6,7 +6,7 @@ import { prefix } from "../../../pages/_app";
 import { DivContainerHOC } from "./styledHOC";
 import Footer from "../footer/Footer";
 
-const HeaderFooterWraper = ({ children }) => {
+const HeaderFooterWraper = ({ children, show = true }) => {
   return (
     <DivContainerHOC
       bg={prefix + require("../../../../assets/image/playground-bg.jpeg")}
@@ -23,9 +23,8 @@ const HeaderFooterWraper = ({ children }) => {
           rel="stylesheet"
         />
       </Head>
-
       {children}
-      <Footer />
+      {show && <Footer />}
     </DivContainerHOC>
   );
 };

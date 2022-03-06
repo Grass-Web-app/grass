@@ -8,10 +8,11 @@ import GridHover from "../app/components/home/GridHover";
 import HeaderFooterWraper from "../app/components/layout/InitWraper";
 import { DivContainerFull } from "../app/components/home/styledIndex";
 import ShowBack from "../app/components/home/ShowBack";
+import Footer from "../app/components/footer/Footer";
 
 const index = () => {
   return (
-    <HeaderFooterWraper>
+    <HeaderFooterWraper show={false}>
       <DivContainerFull>
         <ShowHeader />
         <Description />
@@ -20,6 +21,7 @@ const index = () => {
         <ShowBack />
         <Carousel />
         <CardsBottom />
+        <Footer />
       </DivContainerFull>
     </HeaderFooterWraper>
   );
