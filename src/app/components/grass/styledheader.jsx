@@ -27,9 +27,16 @@ export const H2HeaderGrass = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 8vw;
   ${GetFontFamilyHeader()}
   color: white;
   text-shadow: 1px 1px 2px black;
   font-weight: 400;
+  @media screen and (min-width: 768px) {
+    font-size: 7vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 3vw;
+  }
 `;

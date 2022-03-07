@@ -10,21 +10,36 @@ export const DivCardsContainer = styled.div`
 `;
 
 export const DivCard = styled.div`
-  padding-top: 2%;
   padding-bottom: 2%;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-top: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
   background: ${(props) => props.color};
-  height: 35vh;
-  display: grid;
-  grid-template-columns: 35% 65%;
+  height: 70vh;
+  @media screen and (min-width: 760px) {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    height: 25vh;
+    padding-left: 5%;
+    padding-right: 15%;
+  }
+  @media screen and (min-width: 1020px) {
+    height: 35vh;
+    padding-left: 15%;
+  }
 `;
 
 export const DivImgContainer = styled.div`
   overflow: hidden;
-  height: 100%;
+  height: 35vh;
   width: 100%;
   border-radius: 10px;
+  @media screen and (min-width: 760px) {
+    height: 96%;
+  }
+  @media screen and (min-width: 1020px) {
+    height: 100%;
+  }
 `;
 export const ImgOnly = styled.img`
   width: 100%;
@@ -39,7 +54,13 @@ export const DivRightInfo = styled.div`
   grid-template-areas:
     "icon sub"
     "icon title"
-    ". desc";
+    "desc desc";
+  @media screen and (min-width: 760px) {
+    grid-template-areas:
+      "icon sub"
+      "icon title"
+      ". desc";
+  }
 `;
 
 export const Psubtitle = styled.p`
@@ -47,6 +68,13 @@ export const Psubtitle = styled.p`
   margin: 0;
   ${GetFamilyHeader()}
   color: grey;
+  font-size: 4vw;
+  @media screen and (min-width: 760px) {
+    font-size: 2vw;
+  }
+  @media screen and (min-width: 1020px) {
+    font-size: 0.8vw;
+  }
 `;
 
 export const H4title = styled.h4`
@@ -54,11 +82,25 @@ export const H4title = styled.h4`
   margin: 0;
   ${GetFontFamilyHeader()}
   color: grey;
+  @media screen and (min-width: 760px) {
+    font-size: 2.1vw;
+  }
+  @media screen and (min-width: 1020px) {
+    font-size: 1vw;
+  }
 `;
 
 export const DescriptionOnly = styled.p`
   grid-area: ${(props) => props.area};
   ${GetNormalFamily()}
+  text-align:center;
+  @media screen and (min-width: 760px) {
+    text-align: start;
+    font-size: 2.1vw;
+  }
+  @media screen and (min-width: 1020px) {
+    font-size: 1vw;
+  }
 `;
 
 export const Divicon = styled.div`
@@ -69,5 +111,11 @@ export const Divicon = styled.div`
 `;
 
 export const ImgIconDescription = styled.img`
-  height: 100%;
+  height: 60%;
+  @media screen and (min-width: 760px) {
+    height: 60%;
+  }
+  @media screen and (min-width: 1020px) {
+    height: 100%;
+  }
 `;
