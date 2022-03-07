@@ -14,7 +14,7 @@ const GrassHeader = (props: { id: number }) => {
         alt="picture bg"
         src={prefix + require("../../../../assets/image/lanmark-bg.jpeg")}
       />
-      <H2HeaderGrass>GOLF SOLITION {id}</H2HeaderGrass>
+      <H2HeaderGrass>GOLF SOLUTION {id}</H2HeaderGrass>
     </DivHeaderGrassContainer>
   );
 };
