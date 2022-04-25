@@ -49,9 +49,10 @@ export const DivCarousel = styled.div`
   justify-items: center;
   align-items: center;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 50% 5% 45%;
+  grid-template-rows: 45%5% 5% 45%;
   grid-template-areas:
     "img img img"
+    ". . ."
     "Larr . Rarr"
     "des des des";
   height: fit-content;
@@ -65,13 +66,17 @@ export const DivCarousel = styled.div`
   }
   @media screen and (min-width: 1024px) {
     grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 100%;
     grid-template-areas: "Larr des img Rarr";
     align-items: inherit;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
 export const DivImgContainer = styled.div`
   grid-area: ${(props) => props.area};
+  height: 100%;
 `;
 
 export const DivTextContainer = styled.div`
@@ -131,4 +136,20 @@ export const PDescriptionCarousel = styled.p`
 export const ImgCarousell = styled.img`
   width: 100%;
   height: auto;
+`;
+
+export const ImgCarouselCover = styled.img`
+  height: auto;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  @media screen and (min-width: 1024px) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 `;

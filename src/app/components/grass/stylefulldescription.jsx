@@ -68,7 +68,7 @@ export const PDescription = styled.p`
     font-size: 2.5vw;
   }
   @media screen and (min-width: 1020px) {
+    padding-bottom: 2%;
     font-size: 1.2vw;
-    padding-bottom: 0;
   }
 `;

@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useAxiosGet from "../Hooks/useAxiosGet";
 import { DivBackContainer, Pdescription, PTitle } from "./StyledShowback";
+interface IParallListData {
+  data: {
+    code: number;
+    data: IparallaxOnlyList[];
+  };
+  status: number;
+  statusText: string;
+}
+export interface IparallaxOnlyList {
+  description: string;
+  id: number;
+  title: string;
+}
 const ShowBack = () => {
+  const [ParallaxList, setParallaxList] = useState<null | IparallaxOnlyList>(
+    null
+  );
+  const { Get } = useAxiosGet("parallax/public/", {
+    completeInterceptor: {
+      action: (data: IParallListData) => {
+        setParallaxList(data.data.data[0]);
+      },
+    },
+    errorInterceptor: {
+      message: "No se obtuvieron los datos de get",
+    },
+  });
+  useEffect(() => {
+    Get();
+  }, []);
   return (
     <DivBackContainer>
-      <PTitle>REINVENTING THE PLAYGROUND</PTitle>
-      <Pdescription>
-        We're transforming playgrounds with innovative play surfaces that are
-        safe, fun and functional. Our expert staff provides comprehensive
-        product offerings including playground turf, game court tile,
-        pour-in-place and bonded rubber surfaces that can be combined to create
-        a comprehensive and customized amenity for your school or facility.
-      </Pdescription>
+      <PTitle>{ParallaxList?.title}</PTitle>
+      <Pdescription>{ParallaxList?.description}</Pdescription>
     </DivBackContainer>
   );
 };
