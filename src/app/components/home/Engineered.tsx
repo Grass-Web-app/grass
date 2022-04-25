@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { prefix } from "../../../pages/_app";
+import useAxiosGet from "../Hooks/useAxiosGet";
 import {
   DivCardInfo,
   DivContainerEngineered,
@@ -78,8 +79,38 @@ const CardsContainer = [
     img: require("../../../../assets/image/bases-icon.png"),
   },
 ];
-
+interface IEngineeredListData {
+  data: {
+    code: number;
+    data: IEngineredOnlyList[];
+  };
+  status: number;
+  statusText: string;
+}
+export interface IEngineredOnlyList {
+  description: string;
+  icon: string;
+  id: number;
+  subtitle: string;
+  title: string;
+}
 const Engineered = () => {
+  const [EngineeredList, setEngineeredList] = useState<IEngineredOnlyList[]>(
+    []
+  );
+  const { Get } = useAxiosGet("grasses/public/", {
+    completeInterceptor: {
+      action: (data: IEngineeredListData) => {
+        setEngineeredList(data.data.data);
+      },
+    },
+    errorInterceptor: {
+      message: "No se obtuvieron los datos de get",
+    },
+  });
+  useEffect(() => {
+    Get();
+  }, []);
   return (
     <DivContainerEngineered>
       <DivSandwichContainer>
@@ -118,24 +149,32 @@ const Engineered = () => {
         <DivTextTitle area="title">
           <TextTitleCard>ENGINEERED TO PERFORM</TextTitleCard>
         </DivTextTitle>
-        {CardsContainer.map((item: CardsModel, index: number) => {
-          const { area, sub, title, description, img } = item;
-          return (
-            <DivCardInfo key={index} area={area}>
-              <TextSubTitle area="sub">{sub}</TextSubTitle>
-              <TextTitleCardInside area="title">{title}</TextTitleCardInside>
-              <TextDescriptionInside area="desc">
-                {description}
-              </TextDescriptionInside>
-              <DivImgIconContainer area="icon">
-                <ImgIcon alt="icon" src={img} />
-              </DivImgIconContainer>
-            </DivCardInfo>
-          );
-        })}
+        {EngineeredList.length !== 0 &&
+          EngineeredList.map((item: IEngineredOnlyList, index: number) => {
+            const { subtitle, title, description, icon } = item;
+            return (
+              <DivCardInfo key={index} area={`card${index + 1}`}>
+                <TextSubTitle area="sub">{subtitle}</TextSubTitle>
+                <TextTitleCardInside area="title">{title}</TextTitleCardInside>
+                <TextDescriptionInside area="desc">
+                  {description}
+                </TextDescriptionInside>
+                <DivImgIconContainer area="icon">
+                  <ImgIcon alt="icon" src={icon} />
+                </DivImgIconContainer>
+              </DivCardInfo>
+            );
+          })}
       </DivContainerSandText>
     </DivContainerEngineered>
   );
 };
 
 export default Engineered;
+/**
+ description: string;
+  icon: string;
+  id: number;
+  subtitle: string;
+  title: string;
+ */

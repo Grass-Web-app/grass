@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { prefix } from "../../../pages/_app";
+import useAxiosGet from "../Hooks/useAxiosGet";
 import {
   DivCardGrid,
   DivCardImgContainer,
@@ -13,7 +14,34 @@ import {
   PDescription,
   PWords,
 } from "./StyledCardBottom";
+interface IDataApi {
+  data: { data: IDataCards[]; code: number };
+  status: number;
+  statusText: string;
+}
+
+export interface IDataCards {
+  description: string;
+  id: number;
+  image: string;
+  subtitle: string;
+  title: string;
+}
 const CardsBottom = () => {
+  const [Cards, setCards] = useState<null | IDataCards[]>(null);
+  const { Get } = useAxiosGet("big-cards/public", {
+    completeInterceptor: {
+      action: (data: IDataApi) => {
+        setCards(data.data.data);
+      },
+    },
+    errorInterceptor: {
+      message: "No se obtuvieron los datos de get",
+    },
+  });
+  useEffect(() => {
+    Get();
+  }, []);
   return (
     <DivContainerCards>
       <DivCardGrid>
@@ -23,21 +51,14 @@ const CardsBottom = () => {
               src={prefix + require("../../../../assets/image/park.png")}
             />
           </DivIconContainer>
-          <PWords>It starts with an idea</PWords>
-          <H4TitleCard>LANMARK DESIGNS</H4TitleCard>
-          <PDescription>
-            Need help getting started? Lanmark Designs specializes in adding
-            elements of fun, activity and healthy living to your space.
-            Landscape Architects blend the core elements of landscape design
-            with innovative, environmentally-friendly surfacing from XGrass,
-            Play It, VersaCourt, Tour Greens and Mulch Outfitters to create
-            spaces that truly come to life.
-          </PDescription>
+          <PWords>{Cards !== null && Cards[0]?.subtitle}</PWords>
+          <H4TitleCard>{Cards !== null && Cards[0]?.title}</H4TitleCard>
+          <PDescription>{Cards !== null && Cards[0]?.description}</PDescription>
         </DivLeftTextContainer>
         <DivCardImgContainer>
           <ImgCardBottom
             alt="grass img"
-            src={prefix + require("../../../../assets/image/lanmark-bg.jpeg")}
+            src={Cards !== null && Cards[0]?.image}
           />
         </DivCardImgContainer>
       </DivCardGrid>
@@ -45,7 +66,7 @@ const CardsBottom = () => {
         <DivCardImgContainer>
           <ImgCardBottom
             alt="grass img"
-            src={prefix + require("../../../../assets/image/mexico verde.jpeg")}
+            src={Cards !== null && Cards[1]?.image}
           />
         </DivCardImgContainer>
         <DivRightTexContainer>
@@ -54,14 +75,9 @@ const CardsBottom = () => {
               src={prefix + require("../../../../assets/image/mexico.png")}
             />
           </DivIconContainer>
-          <PWords>Your Installation Partner</PWords>
-          <H4TitleCard>NATIONWIDE COVERAGE</H4TitleCard>
-          <PDescription>
-            We believe installing our products should be a seamless, hassle-free
-            experience. That’s why we’ve created a nationwide network of sales
-            managers to provide all of the expertise and materials you need for
-            your surfacing projects.
-          </PDescription>
+          <PWords>{Cards !== null && Cards[1]?.subtitle}</PWords>
+          <H4TitleCard>{Cards !== null && Cards[1]?.title}</H4TitleCard>
+          <PDescription>{Cards !== null && Cards[1]?.description}</PDescription>
         </DivRightTexContainer>
       </DivCardGrid>
     </DivContainerCards>
