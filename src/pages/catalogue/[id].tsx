@@ -55,8 +55,8 @@ export interface ICatalogueCarouselDescription {
 const index = () => {
   const [Contenido, setContenido] = useState<IDataCatalogue | null>(null);
   const [Carousel, setCarousel] = useState<string[]>([]);
-  const router = useRouter();
-  const catalogueID = router.query.id;
+  const { query } = useRouter();
+  const catalogueID = query.id;
   console.log(catalogueID);
   const { Get } = useAxiosGet(`catalogues/public/catalogue/${catalogueID}`, {
     completeInterceptor: {
