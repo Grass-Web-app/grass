@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ICatalogueBigCardCarousel } from "../../../pages/catalogue/[name]/[id]";
 import Carousel from "../carousel/Carousel";
 import {
   DivBenefits,
@@ -15,21 +16,29 @@ import {
   PSubtitleCarousel,
   PTitleCarousel,
 } from "./Styledcarouselgrass";
+const caracteres = "%$##$%";
+//const carousel = [
+//  require("../../../../assets/image/bocce.jpeg"),
+//  require("../../../../assets/image/lanmark-bg.jpeg"),
+//  require("../../../../assets/image/tennis.jpeg"),
+//  require("../../../../assets/image/sport.jpeg"),
+//];
+const CarouselGrass = (props: {
+  information: ICatalogueBigCardCarousel;
+  carousel: string[];
+}) => {
+  const { information, carousel } = props;
+  const [Benefits, setBenefits] = useState<string[]>([]);
+  useEffect(() => {
+    if (information !== null) {
+      if (information?.benefits.includes(caracteres)) {
+        setBenefits(information?.benefits.split(caracteres));
+      } else if (information?.benefits !== "") {
+        setBenefits[information?.benefits];
+      }
+    }
+  }, [information]);
 
-const benefits = [
-  "Low maintenance",
-  "Great amenity for communities",
-  "All season performance",
-  "Fun for the whole family",
-  "No watering, mowing or fertilizing required",
-];
-const carousel = [
-  require("../../../../assets/image/bocce.jpeg"),
-  require("../../../../assets/image/lanmark-bg.jpeg"),
-  require("../../../../assets/image/tennis.jpeg"),
-  require("../../../../assets/image/sport.jpeg"),
-];
-const CarouselGrass = () => {
   return (
     <DivCarouselGrassContainer>
       <DivLeftInfo>
@@ -39,38 +48,29 @@ const CarouselGrass = () => {
             src={require("../../../../assets/icons/icon-golf.svg")}
           />
         </DivIcon>
-        <PSubtitleCarousel area="sub">An Unmatched Selection</PSubtitleCarousel>
-        <PTitleCarousel area="title">XGRASS GOLF TURF</PTitleCarousel>
+        <PSubtitleCarousel area="sub">
+          {information?.subtitle}
+        </PSubtitleCarousel>
+        <PTitleCarousel area="title">{information?.title}</PTitleCarousel>
         <DivDescription area="Desc">
-          <PdescriptionCaroou>
-            Anyone who has tried to install a backyard putting green quickly
-            gains an appreciation for how hard it is to be professional
-            greenskeeper. As if building a putting green was not hard enough,
-            maintaining one can be a full-time job. These challenges extend to
-            the tee boxes and any others areas where divots makes growing grass
-            a constant battle.
-          </PdescriptionCaroou>
-          <PdescriptionCaroou>
-            XGrass has engineered a number of low-maintenance synthetic grass
-            systems designed for practicing and enjoying all aspects of the game
-            of golf.
-          </PdescriptionCaroou>
+          <PdescriptionCaroou>{information?.description}</PdescriptionCaroou>
         </DivDescription>
         <DivBenefitsList area="bene">
-          <PBenefitsTitle>BENEFITS:</PBenefitsTitle>
+          <PBenefitsTitle>BENEFICIOS:</PBenefitsTitle>
           <DivBenefits>
-            {benefits.map((item: string, index: number) => {
-              return (
-                <Pbenefits key={index}>
-                  <span style={{ color: "orange" }}>• </span> {item}
-                </Pbenefits>
-              );
-            })}
+            {Benefits.length !== 0 &&
+              Benefits.map((item: string, index: number) => {
+                return (
+                  <Pbenefits key={index}>
+                    <span style={{ color: "orange" }}>• </span> {item}
+                  </Pbenefits>
+                );
+              })}
           </DivBenefits>
         </DivBenefitsList>
       </DivLeftInfo>
       <DivRightCarousel>
-        <Carousel time={2000} images={carousel} />
+        {carousel?.length !== 0 && <Carousel time={2000} images={carousel} />}
       </DivRightCarousel>
     </DivCarouselGrassContainer>
   );

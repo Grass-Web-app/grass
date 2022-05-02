@@ -1,4 +1,5 @@
 import React from "react";
+import { ICatalogueCarouselDescription } from "../../../pages/catalogue/[name]/[id]";
 import { prefix } from "../../../pages/_app";
 import {
   DescriptionOnly,
@@ -19,16 +20,20 @@ const carousel = [
   require("../../../../assets/image/sport.jpeg"),
 ];
 
-const CardsOfPics = () => {
+const CardsOfPics = (props: {
+  information: ICatalogueCarouselDescription[];
+}) => {
+  const { information } = props;
+
   return (
     <DivCardsContainer>
-      {carousel.map((item: string, index: number) => {
+      {information.map((item: ICatalogueCarouselDescription, index: number) => {
         let place = "white";
-        if (index % 2 === 0) place = "#f5f5f5";
+        if (index % 2 === 0) place = "#F3F4F6";
         return (
-          <DivCard color={place} key={index}>
+          <DivCard color={place} key={item.id}>
             <DivImgContainer>
-              <ImgOnly alt="image" src={prefix + item} />
+              <ImgOnly alt="image" src={item?.picture} />
             </DivImgContainer>
             <DivRightInfo>
               <Divicon area="icon">
@@ -37,18 +42,9 @@ const CardsOfPics = () => {
                   src={require("../../../../assets/icons/icon-golf.svg")}
                 />
               </Divicon>
-              <Psubtitle area="sub">
-                Multiple Styles for Putting, Chipping & More
-              </Psubtitle>
-              <H4title area="title">PUTTING GREEN TURF</H4title>
-              <DescriptionOnly area="desc">
-                XGrass offers a number of synthetic grass products for building
-                all types of golf greens - from putting greens and short game
-                greens to complete backyard golf courses. We also work with a
-                nationwide network of dealers that specialize in installing tour
-                quality golf greens that look and react just like a real bent
-                grass putting green, without the daily maintenance.
-              </DescriptionOnly>
+              <Psubtitle area="sub">{item?.subtitle}</Psubtitle>
+              <H4title area="title">{item?.title}</H4title>
+              <DescriptionOnly area="desc">{item?.description}</DescriptionOnly>
             </DivRightInfo>
           </DivCard>
         );
