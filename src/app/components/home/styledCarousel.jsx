@@ -113,6 +113,9 @@ export const ButtonImgArrow = styled.button`
   border-style: none;
   background: #efefef;
   box-shadow: -3px 3px 6px 0px rgb(0 0 0 / 15%);
+  &:hover {
+    background: #82ff8f;
+  }
 `;
 export const ImgArrow = styled.img`
   width: 50%;

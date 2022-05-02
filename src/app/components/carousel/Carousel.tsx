@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { prefix } from "../../../pages/_app";
+
 import { DivContainerCarousel, ImgCarouselDescription } from "./styledcarousel";
 const Carousel = (props: { images: string[]; time: number }) => {
   const { images, time } = props;
@@ -21,7 +21,7 @@ const Carousel = (props: { images: string[]; time: number }) => {
 
   return (
     <DivContainerCarousel>
-      <ImgCarouselDescription alt="img" src={prefix + images[state]} />
+      <ImgCarouselDescription alt="img" src={images[state]} />
     </DivContainerCarousel>
   );
 };

@@ -49,7 +49,7 @@ const GridHover = () => {
                 Title={title}
                 SubTitle={subtitle}
                 Description={description}
-                img={catalogue_headers[0].picture}
+                img={catalogue_headers[0]?.picture}
               />
             </div>
           );

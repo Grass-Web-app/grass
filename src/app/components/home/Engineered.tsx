@@ -171,10 +171,3 @@ const Engineered = () => {
 };
 
 export default Engineered;
-/**
- description: string;
-  icon: string;
-  id: number;
-  subtitle: string;
-  title: string;
- */
