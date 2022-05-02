@@ -1,5 +1,5 @@
 import React from "react";
-import { ICatalogueCarouselDescription } from "../../../pages/catalogue/[name]/[id]";
+import { ICatalogueCarouselDescription } from "../../../pages/catalogue/[id]";
 import { prefix } from "../../../pages/_app";
 import {
   DescriptionOnly,
