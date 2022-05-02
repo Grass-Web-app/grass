@@ -55,29 +55,30 @@ const CardsBottom = () => {
           <H4TitleCard>{Cards !== null && Cards[0]?.title}</H4TitleCard>
           <PDescription>{Cards !== null && Cards[0]?.description}</PDescription>
         </DivLeftTextContainer>
-        <DivCardImgContainer>
-          <ImgCardBottom
-            alt="grass img"
-            src={Cards !== null && Cards[0]?.image}
-          />
-        </DivCardImgContainer>
+
+        {Cards !== null && (
+          <DivCardImgContainer>
+            <ImgCardBottom alt="grass img" src={Cards[0]?.image} />
+          </DivCardImgContainer>
+        )}
       </DivCardGrid>
       <DivCardGrid>
-        <DivCardImgContainer>
-          <ImgCardBottom
-            alt="grass img"
-            src={Cards !== null && Cards[1]?.image}
-          />
-        </DivCardImgContainer>
+        {Cards !== null && (
+          <DivCardImgContainer>
+            <ImgCardBottom alt="grass img" src={Cards[1]?.image} />
+          </DivCardImgContainer>
+        )}
         <DivRightTexContainer>
           <DivIconContainer>
             <ImgIconCardBottom
               src={prefix + require("../../../../assets/image/mexico.png")}
             />
           </DivIconContainer>
-          <PWords>{Cards !== null && Cards[1]?.subtitle}</PWords>
-          <H4TitleCard>{Cards !== null && Cards[1]?.title}</H4TitleCard>
-          <PDescription>{Cards !== null && Cards[1]?.description}</PDescription>
+          {Cards !== null && <PWords>{Cards[1]?.subtitle}</PWords>}
+          {Cards !== null && <H4TitleCard>{Cards[1]?.title}</H4TitleCard>}
+          {Cards !== null && (
+            <PDescription>{Cards[1]?.description}</PDescription>
+          )}
         </DivRightTexContainer>
       </DivCardGrid>
     </DivContainerCards>

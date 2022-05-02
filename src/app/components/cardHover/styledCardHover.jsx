@@ -12,9 +12,16 @@ export const DivImgCOntainer = styled.div`
 `;
 export const DivContainerHover = styled.div`
   width: 100%;
-  height: 100%;
+  height: 200px;
   position: relative;
   cursor: pointer;
+  @media screen and (min-width: 768px) {
+    height: 300px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 400px;
+  }
 `;
 
 export const ImgHover = styled.img`

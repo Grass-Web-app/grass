@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ShowHeader from "../app/components/header/ShowHeader";
 import CardsBottom from "../app/components/home/CardsBottom";
 import Carousel from "../app/components/home/Carousel";
@@ -11,17 +11,23 @@ import ShowBack from "../app/components/home/ShowBack";
 import Footer from "../app/components/footer/Footer";
 
 const index = () => {
+  useEffect(() => {
+    if (localStorage.getItem("FustadesingCatalogue") == null) {
+      localStorage.setItem("FustadesingCatalogue", "");
+    }
+  }, []);
+
   return (
     <HeaderFooterWraper show={false}>
       <DivContainerFull>
-        <ShowHeader />
-        <Description />
-        <GridHover />
-        <Engineered />
-        <ShowBack />
-        <Carousel />
-        <CardsBottom />
-        <Footer />
+      <ShowHeader />
+      <Description />
+      <GridHover />
+      <Engineered />
+      <ShowBack />
+      <Carousel />
+      <CardsBottom />
+      <Footer />
       </DivContainerFull>
     </HeaderFooterWraper>
   );

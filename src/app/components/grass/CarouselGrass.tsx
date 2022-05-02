@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ICatalogueBigCardCarousel } from "../../../pages/catalogue/[id]";
+import { ICatalogueBigCardCarousel } from "../../../pages/catalogue";
 import Carousel from "../carousel/Carousel";
 import {
   DivBenefits,
