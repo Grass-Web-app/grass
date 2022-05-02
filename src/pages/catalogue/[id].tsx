@@ -52,12 +52,11 @@ export interface ICatalogueCarouselDescription {
   subtitle: string;
   title: string;
 }
-const index = () => {
+const index = ({ data }: IDataApi) => {
   const [Contenido, setContenido] = useState<IDataCatalogue | null>(null);
   const [Carousel, setCarousel] = useState<string[]>([]);
   const { query } = useRouter();
   const catalogueID = query.id;
-  console.log(catalogueID);
   const { Get } = useAxiosGet(`catalogues/public/catalogue/${catalogueID}`, {
     completeInterceptor: {
       action: (dat: IDataApi) => {
@@ -69,19 +68,13 @@ const index = () => {
     },
   });
 
-  //useEffect(() => {
-  //  Get();
-  //}, []);
-
   useEffect(() => {
-    //if (localStorage.getItem("hgte") !== null)
-    //  {
-    //
-    //  }
-    if (catalogueID !== "") {
-      Get();
+    if (data !== undefined) {
+      setContenido(data.data);
+      console.log(data.data);
     }
-  }, []);
+  }, [data]);
+
   useEffect(() => {
     if (Contenido !== null) {
       setCarousel(
@@ -123,3 +116,36 @@ const index = () => {
 };
 
 export default index;
+export async function getStaticPaths() {
+  try {
+    const res = await fetch(
+      "https://backend.fustadesign.com/api/v1/catalogues/public/catalogue"
+    );
+    const data = await res.json();
+    const paths = data.data.map(({ id }) => ({ params: { id: `${id}` } }));
+    console.log(paths);
+    return {
+      paths: paths,
+      fallback: false,
+    };
+  } catch (error) {
+    console.log("Error");
+  }
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const res = await fetch(
+      "https://backend.fustadesign.com/api/v1/catalogues/public/catalogue/" +
+        `${params.id}`
+    );
+    const data = await res.json();
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
