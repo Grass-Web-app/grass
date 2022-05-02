@@ -52,12 +52,11 @@ export interface ICatalogueCarouselDescription {
   subtitle: string;
   title: string;
 }
-const index = ({ data }: IDataApi) => {
+const index = () => {
   const [Contenido, setContenido] = useState<IDataCatalogue | null>(null);
   const [Carousel, setCarousel] = useState<string[]>([]);
-  const { query } = useRouter();
-  const catalogueID = query.id;
-  const { Get } = useAxiosGet(`catalogues/public/catalogue/${catalogueID}`, {
+  const id = localStorage.getItem("FustadesingCatalogue");
+  const { Get } = useAxiosGet(`catalogues/public/catalogue/${id}`, {
     completeInterceptor: {
       action: (dat: IDataApi) => {
         setContenido(dat.data.data);
@@ -69,11 +68,10 @@ const index = ({ data }: IDataApi) => {
   });
 
   useEffect(() => {
-    if (data !== undefined) {
-      setContenido(data.data);
-      console.log(data.data);
+    if (id !== "") {
+      Get();
     }
-  }, [data]);
+  }, [id]);
 
   useEffect(() => {
     if (Contenido !== null) {
@@ -114,8 +112,8 @@ const index = ({ data }: IDataApi) => {
     </HeaderFooterWraper>
   );
 };
-
 export default index;
+/*
 export async function getStaticPaths() {
   try {
     const res = await fetch(
@@ -149,3 +147,4 @@ export async function getStaticProps({ params }) {
     console.log(error);
   }
 }
+*/

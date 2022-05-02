@@ -23,15 +23,14 @@ const CardHover = (props: {
 }) => {
   const { Title, SubTitle, Description, img, id } = props;
   const GotoGrass = (id: string) => {
-    localStorage.setItem("hgte", id);
-    //push(`catalogue/${id}`);
+    localStorage.setItem("FustadesingCatalogue", id);
   };
   const [ShowAnimation, setShowAnimation] = useState(false);
   const handleMouse = () => {
     setShowAnimation(!ShowAnimation);
   };
   return (
-    <Link href="catalogue/[id]" as={`catalogue/${id}`}>
+    <Link href="catalogue" as={`catalogue`}>
       <a>
         <DivContainerHover
           onClick={() => GotoGrass(`${id}`)}
