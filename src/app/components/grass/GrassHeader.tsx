@@ -1,5 +1,5 @@
 import React from "react";
-import { ICatalogueHeaders } from "../../../pages/catalogue/[name]/[id]";
+import { ICatalogueHeaders } from "../../../pages/catalogue/[id]";
 
 import {
   DivHeaderGrassContainer,

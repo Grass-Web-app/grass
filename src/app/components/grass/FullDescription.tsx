@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { ICatalogueBigDescription } from "../../../pages/catalogue/[name]/[id]";
+import { ICatalogueBigDescription } from "../../../pages/catalogue/[id]";
 import {
   DivFullDescContainer,
   DivTrhee,

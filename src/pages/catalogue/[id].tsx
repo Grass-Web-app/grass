@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import CardsOfPics from "../../../app/components/grass/CardsOfPics";
-import CarouselGrass from "../../../app/components/grass/CarouselGrass";
-import FullDescription from "../../../app/components/grass/FullDescription";
-import GrassHeader from "../../../app/components/grass/GrassHeader";
-import { DivGrassDescription } from "../../../app/components/grass/styledgrass";
-import HeaderFooterWraper from "../../../app/components/layout/InitWraper";
-import useAxiosGet from "../../../app/components/Hooks/useAxiosGet";
+import CardsOfPics from "../../app/components/grass/CardsOfPics";
+import CarouselGrass from "../../app/components/grass/CarouselGrass";
+import FullDescription from "../../app/components/grass/FullDescription";
+import GrassHeader from "../../app/components/grass/GrassHeader";
+import { DivGrassDescription } from "../../app/components/grass/styledgrass";
+import HeaderFooterWraper from "../../app/components/layout/InitWraper";
+import useAxiosGet from "../../app/components/Hooks/useAxiosGet";
 
 interface IDataApi {
   data: { data: IDataCatalogue; code: number };

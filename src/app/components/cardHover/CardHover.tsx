@@ -23,9 +23,9 @@ const CardHover = (props: {
 }) => {
   const { Title, SubTitle, Description, img, id } = props;
   const { push } = useRouter();
-  const GotoGrass = (name: string, id: string) => {
+  const GotoGrass = (id: string) => {
     localStorage.setItem("hgte", id);
-    push(`catalogue/${name}/${id}`);
+    push(`catalogue/${id}`);
   };
   const [ShowAnimation, setShowAnimation] = useState(false);
   const handleMouse = () => {
@@ -33,7 +33,7 @@ const CardHover = (props: {
   };
   return (
     <DivContainerHover
-      onClick={() => GotoGrass(Title, `${id}`)}
+      onClick={() => GotoGrass(`${id}`)}
       onMouseOver={handleMouse}
       onMouseOut={handleMouse}
     >
