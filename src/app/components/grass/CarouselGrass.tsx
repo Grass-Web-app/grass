@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ICatalogueBigCardCarousel } from "../../../pages/catalogue";
+import { ICatalogueBigCardCarousel } from "../../../pages/catalogue/[name]";
+
 import Carousel from "../carousel/Carousel";
 import {
   DivBenefits,
@@ -17,12 +18,7 @@ import {
   PTitleCarousel,
 } from "./Styledcarouselgrass";
 const caracteres = "%$##$%";
-//const carousel = [
-//  require("../../../../assets/image/bocce.jpeg"),
-//  require("../../../../assets/image/lanmark-bg.jpeg"),
-//  require("../../../../assets/image/tennis.jpeg"),
-//  require("../../../../assets/image/sport.jpeg"),
-//];
+
 const CarouselGrass = (props: {
   information: ICatalogueBigCardCarousel;
   carousel: string[];

@@ -1,6 +1,6 @@
 import React from "react";
-import { ICatalogueCarouselDescription } from "../../../pages/catalogue";
-import { prefix } from "../../../pages/_app";
+import { ICatalogueCarouselDescription } from "../../../pages/catalogue/[name]";
+
 import {
   DescriptionOnly,
   DivCard,
@@ -13,12 +13,6 @@ import {
   ImgOnly,
   Psubtitle,
 } from "./styledCardsofpics";
-const carousel = [
-  require("../../../../assets/image/bocce.jpeg"),
-  require("../../../../assets/image/lanmark-bg.jpeg"),
-  require("../../../../assets/image/tennis.jpeg"),
-  require("../../../../assets/image/sport.jpeg"),
-];
 
 const CardsOfPics = (props: {
   information: ICatalogueCarouselDescription[];
