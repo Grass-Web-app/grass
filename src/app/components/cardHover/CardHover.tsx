@@ -30,7 +30,7 @@ const CardHover = (props: {
     setShowAnimation(!ShowAnimation);
   };
   return (
-    <Link href="catalogue/[name]" as={`catalogue/${Title}-${id}`}>
+    <Link href="catalogue/[name]" as={`catalogue/${Title}ghf-${id}`}>
       <a>
         <DivContainerHover
           onClick={() => GotoGrass(`${id}`)}
