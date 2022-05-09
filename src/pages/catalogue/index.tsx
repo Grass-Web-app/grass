@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import CardsOfPics from "../../app/components/grass/CardsOfPics";
 import CarouselGrass from "../../app/components/grass/CarouselGrass";
 import FullDescription from "../../app/components/grass/FullDescription";
