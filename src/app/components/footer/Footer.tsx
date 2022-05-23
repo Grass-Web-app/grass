@@ -178,12 +178,14 @@ const Footer = () => {
                   />
                 </DivIconsContainer>
               )}
-              <DivIconsContainer onClick={() => GotoURL(FooterInfo.linkedIn)}>
-                <ImgIcons
-                  alt="icon"
-                  src={require("../../../../assets/icons/icons8-linkedin.svg")}
-                />
-              </DivIconsContainer>
+              {FooterInfo.have_instagram && (
+                <DivIconsContainer onClick={() => GotoURL(FooterInfo.linkedIn)}>
+                  <ImgIcons
+                    alt="icon"
+                    src={require("../../../../assets/icons/icons8-linkedin.svg")}
+                  />
+                </DivIconsContainer>
+              )}
             </DivIconsContainersFlex>
           </DivRightFollow>
         </>
