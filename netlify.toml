@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/catalogue/:name"
+  to = "/catalogue/[name].html"
+  status = 200
+  force = true
